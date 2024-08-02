@@ -41,7 +41,7 @@ export function DeleteUserForm() {
         destroy(route('profile.destroy'), {
             preserveScroll: true,
             onSuccess: () => closeModal(),
-            onError: () => toast.error(errors.password),
+            onError: () => toast.error(errors.password || 'Something wrong'),
             onFinish: () => reset()
         })
     }
