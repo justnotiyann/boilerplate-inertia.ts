@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { useForm } from '@inertiajs/react'
 import { useState } from 'react'
+import { toast } from 'sonner'
 import {
     Card,
     CardContent,
@@ -40,6 +41,7 @@ export function DeleteUserForm() {
         destroy(route('profile.destroy'), {
             preserveScroll: true,
             onSuccess: () => closeModal(),
+            onError: () => toast.error(errors.password),
             onFinish: () => reset()
         })
     }
